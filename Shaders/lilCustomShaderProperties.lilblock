@@ -1,0 +1,12 @@
+
+        //----------------------------------------------------------------------------------------------------------------------
+        // Custom Properties
+        //_CustomVariable ("Custom Variable", Float) = 0
+
+[lilToggleLeft] _AlphaFresnelEnabled ("Alpha Fresnel Enabled", Float) = 0
+_AlphaFresnelPower ("Power", Float) = 1
+_AlphaFresnelIntensity ("Intensity", Range(0, 1)) = 0
+_AlphaFresnelBorder ("Border", Range(0, 1)) = 0.5
+_AlphaFresnelBlur ("Blur", Range(0, 1)) = 1.0
+_AlphaFresnelColor ("Color", Color) = (0,0,0,1)
+_AlphaFresnelLigting ("Enable Lighting", Range(0, 1)) = 1
