@@ -1,12 +1,20 @@
+        [lilToggleLeft] _AlphaFresnelEnabled ("Alpha Fresnel Enabled", Float) = 0
+        _AlphaFresnelPower ("Power", Float) = 1
+        _AlphaFresnelIntensity ("Intensity", Range(0, 1)) = 0
+        _AlphaFresnelBorder ("Border", Range(0, 1)) = 0.5
+        _AlphaFresnelBlur ("Blur", Range(0, 1)) = 1.0
+        _AlphaFresnelColor ("Color", Color) = (0,0,0,1)
+        _AlphaFresnelLigting ("Enable Lighting", Range(0, 1)) = 1
 
-        //----------------------------------------------------------------------------------------------------------------------
-        // Custom Properties
-        //_CustomVariable ("Custom Variable", Float) = 0
 
-[lilToggleLeft] _AlphaFresnelEnabled ("Alpha Fresnel Enabled", Float) = 0
-_AlphaFresnelPower ("Power", Float) = 1
-_AlphaFresnelIntensity ("Intensity", Range(0, 1)) = 0
-_AlphaFresnelBorder ("Border", Range(0, 1)) = 0.5
-_AlphaFresnelBlur ("Blur", Range(0, 1)) = 1.0
-_AlphaFresnelColor ("Color", Color) = (0,0,0,1)
-_AlphaFresnelLigting ("Enable Lighting", Range(0, 1)) = 1
+        [lilToggleLeft] _CustomSpecularEnabled ("Specular", Float) = 0
+        [lilVec3] _CustomSpecularDir0 ("Override Direction", Vector) = (0.0,.5,-1.0,0.0)
+        [lilVec3] _CustomSpecularDir1 ("Override Direction", Vector) = (0.0,.5,-1.0,0.0)
+        [lilHDR] _CustomSpecularColor0 ("Color", Color) = (1,1,1,1)
+        [lilHDR] _CustomSpecularColor1 ("Color", Color) = (1,1,1,0)
+        _CustomSpecularBlur0 ("Blur", Range(0, 1)) = 0.5
+        _CustomSpecularBlur1 ("Blur", Range(0, 1)) = 0.5
+        _CustomSpecularBorder0 ("Border", Range(0, 1)) = 0.5
+        _CustomSpecularBorder1 ("Border", Range(0, 1)) = 0.5
+        [Enum(Add, 0, Multiply, 1, Replace, 2)] _CustomSpecularBlend ("Blend", Int) = 0
+

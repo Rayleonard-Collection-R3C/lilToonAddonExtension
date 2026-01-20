@@ -2,8 +2,6 @@
 // Macro
 
 // Custom variables
-//#define LIL_CUSTOM_PROPERTIES \
-//    float _CustomVariable;
 #define LIL_CUSTOM_PROPERTIES \
     float4 _AlphaFresnelColor; \
     float _AlphaFresnelBorder; \
@@ -11,7 +9,18 @@
     float _AlphaFresnelEnabled; \
     float _AlphaFresnelPower; \
     float _AlphaFresnelLigting; \
-    float _AlphaFresnelIntensity;
+    float _AlphaFresnelIntensity; \
+    float _CustomSpecularEnabled; \
+    float3 _CustomSpecularDir0; \
+    float3 _CustomSpecularDir1; \
+    float4 _CustomSpecularColor0; \
+    float4 _CustomSpecularColor1; \
+    float _CustomSpecularBlur0; \
+    float _CustomSpecularBlur1; \
+    float _CustomSpecularBorder0; \
+    float _CustomSpecularBorder1; \
+    uint _CustomSpecularBlend; \
+
 
 // Custom textures
 #define LIL_CUSTOM_TEXTURES
@@ -53,7 +62,9 @@
 //#define BEFORE_xx
 //#define OVERRIDE_xx
 
-#define BEFORE_OUTPUT ApplyCustomFresnel(fd);
+#define BEFORE_OUTPUT ApplyCustomFresnel(fd); \
+                      ApplyCustomSpecular(fd); \
+
 
 //----------------------------------------------------------------------------------------------------------------------
 // Information about variables
@@ -152,7 +163,7 @@
 // float3   parallaxViewDirection   mul(tbnWS, viewDirection);
 // float2   parallaxOffset          parallaxViewDirection.xy / (parallaxViewDirection.z+0.5);
 // float    anisotropy              strength of anisotropy
-// float    smoothness              smoothness
+// float    Blur              Blur
 // float    roughness               roughness
 // float    perceptualRoughness     perceptual roughness
 // float    shadowmix               this variable is 0 in the shadow area

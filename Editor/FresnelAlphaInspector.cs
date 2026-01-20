@@ -42,6 +42,17 @@ namespace lilToon
         MaterialProperty _AlphaFresnelColor;
         MaterialProperty _AlphaFresnelLigting;
 
+        MaterialProperty _CustomSpecularEnabled;
+        MaterialProperty _CustomSpecularDir0;
+        MaterialProperty _CustomSpecularDir1;
+        MaterialProperty _CustomSpecularColor0;
+        MaterialProperty _CustomSpecularColor1;
+        MaterialProperty _CustomSpecularBlur0;
+        MaterialProperty _CustomSpecularBlur1;
+        MaterialProperty _CustomSpecularBorder0;
+        MaterialProperty _CustomSpecularBorder1;
+        MaterialProperty _CustomSpecularBlend;
+
         protected override void DrawCustomProperties(Material material)
         {
             isShowCustomProperties = Foldout("Fresnel Alpha", "Fresnel Alpha", isShowCustomProperties);
@@ -56,6 +67,25 @@ namespace lilToon
                 m_MaterialEditor.ShaderProperty(_AlphaFresnelBorder, _AlphaFresnelBorder.displayName);
                 m_MaterialEditor.ShaderProperty(_AlphaFresnelBlur, _AlphaFresnelBlur.displayName);
                 m_MaterialEditor.ShaderProperty(_AlphaFresnelLigting, _AlphaFresnelLigting.displayName);
+
+                EditorGUILayout.EndVertical();
+                EditorGUILayout.EndVertical();
+
+                EditorGUILayout.BeginVertical(boxOuter);
+                m_MaterialEditor.ShaderProperty(_CustomSpecularEnabled, _CustomSpecularEnabled.displayName);
+                EditorGUILayout.BeginVertical(boxInnerHalf);
+
+                m_MaterialEditor.ShaderProperty(_CustomSpecularBlend, _CustomSpecularBlend.displayName);
+                EditorGUILayout.LabelField("Specular 1");
+                m_MaterialEditor.ShaderProperty(_CustomSpecularDir0, _CustomSpecularDir0.displayName);
+                m_MaterialEditor.ShaderProperty(_CustomSpecularColor0, _CustomSpecularColor0.displayName);
+                m_MaterialEditor.ShaderProperty(_CustomSpecularBlur0, _CustomSpecularBlur0.displayName);
+                m_MaterialEditor.ShaderProperty(_CustomSpecularBorder0, _CustomSpecularBorder0.displayName);
+                EditorGUILayout.LabelField("Specular 2");
+                m_MaterialEditor.ShaderProperty(_CustomSpecularDir1, _CustomSpecularDir1.displayName);
+                m_MaterialEditor.ShaderProperty(_CustomSpecularColor1, _CustomSpecularColor1.displayName);
+                m_MaterialEditor.ShaderProperty(_CustomSpecularBlur1, _CustomSpecularBlur1.displayName);
+                m_MaterialEditor.ShaderProperty(_CustomSpecularBorder1, _CustomSpecularBorder1.displayName);
 
                 EditorGUILayout.EndVertical();
                 EditorGUILayout.EndVertical();
