@@ -7,11 +7,16 @@
         _AlphaFresnelLigting ("Enable Lighting", Range(0, 1)) = 1
 
 
-        [lilToggleLeft] _CustomSpecularEnabled ("Specular", Float) = 0
+        [lilToggleLeft] _CustomSpecularEnabled ("Specular Enabled", Float) = 0
+        [lilToggleLeft] _CustomSpecularUseOverride0 ("Use Override Direction", Float) = 0
+        [lilToggleLeft] _CustomSpecularUseOverride1 ("Use Override Direction", Float) = 0
+        _CustomSpecularMask0 ("Mask", 2D) = "white" {}
+        _CustomSpecularMask1 ("Mask", 2D) = "white" {}
+        _CustomSpecularEnableLighting ("Enable Lighting", Range(0, 1)) = 1
         [lilVec3] _CustomSpecularDir0 ("Override Direction", Vector) = (0.0,.5,-1.0,0.0)
         [lilVec3] _CustomSpecularDir1 ("Override Direction", Vector) = (0.0,.5,-1.0,0.0)
-        [lilHDR] _CustomSpecularColor0 ("Color", Color) = (1,1,1,1)
-        [lilHDR] _CustomSpecularColor1 ("Color", Color) = (1,1,1,0)
+        [lilHDR] _CustomSpecularColor0 ("Tint", Color) = (1,1,1,1)
+        [lilHDR] _CustomSpecularColor1 ("Tint", Color) = (1,1,1,0)
         _CustomSpecularBlur0 ("Blur", Range(0, 1)) = 0.5
         _CustomSpecularBlur1 ("Blur", Range(0, 1)) = 0.5
         _CustomSpecularBorder0 ("Border", Range(0, 1)) = 0.5

@@ -1,5 +1,5 @@
 {
-    "name": "FresnelAlpha",
+    "name": "liltoon.AddonExtension",
     "rootNamespace": "",
     "references": [
         "lilToon.Editor"

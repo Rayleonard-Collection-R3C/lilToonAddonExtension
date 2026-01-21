@@ -20,10 +20,16 @@
     float _CustomSpecularBorder0; \
     float _CustomSpecularBorder1; \
     uint _CustomSpecularBlend; \
+    float _CustomSpecularEnableLighting; \
+    float _CustomSpecularUseOverride0; \
+    float _CustomSpecularUseOverride1; \
 
 
 // Custom textures
-#define LIL_CUSTOM_TEXTURES
+#define LIL_CUSTOM_TEXTURES \
+    TEXTURE2D(_CustomSpecularMask0); \
+    TEXTURE2D(_CustomSpecularMask1); \
+
 
 // Add vertex shader input
 //#define LIL_REQUIRE_APP_POSITION
