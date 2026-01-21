@@ -21,11 +21,13 @@ void ApplyCustomFresnel(inout lilFragData fd)
 float3 GetCustomSpecular(lilFragData fd, float3 L, float Blur, float Border)
 {
     L = normalize(L);
+
     float3 N = fd.N;
     float3 H = normalize(fd.V + L);
 
-    float spec = saturate(dot(H, fd.N));
-    float NoL = saturate(dot(N, L));
+
+    float spec = saturate(dot(H, N));
+    // float NoL = saturate(dot(N, L));
     return lilTooningScale(1, spec, sqrt(Border), Blur*Blur);
 }
 
@@ -75,7 +77,4 @@ void ApplyCustomSpecular(inout lilFragData fd)
     spec *= lerp(1, fd.lightColor, _CustomSpecularEnableLighting);
 
     fd.col.rgb += spec;
-    // fd.col.rgb += spec0 * _CustomSpecularColor0.rgb;
-    // fd.col.rgb = spec0.rrr;
-
 }
