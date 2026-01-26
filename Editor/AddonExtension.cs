@@ -84,21 +84,22 @@ namespace lilToon
 
                 EditorGUILayout.Space();
                 EditorGUILayout.LabelField("Specular 1");
+                m_MaterialEditor.ShaderProperty(_CustomSpecularColor0, _CustomSpecularColor0.displayName);
                 m_MaterialEditor.TexturePropertySingleLine(new GUIContent(_CustomSpecularMask0.displayName), _CustomSpecularMask0);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularUseOverride0, _CustomSpecularUseOverride0.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularDir0, _CustomSpecularDir0.displayName);
-                m_MaterialEditor.ShaderProperty(_CustomSpecularColor0, _CustomSpecularColor0.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBlur0, _CustomSpecularBlur0.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBorder0, _CustomSpecularBorder0.displayName);
 
                 EditorGUILayout.Space();
 
                 EditorGUILayout.LabelField("Specular 2");
+                                lilEditorGUI.DrawColorAsAlpha(_CustomSpecularColor1, "Alpha");
+                m_MaterialEditor.ShaderProperty(_CustomSpecularColor1, _CustomSpecularColor1.displayName);
                 m_MaterialEditor.TexturePropertySingleLine(new GUIContent(_CustomSpecularMask1.displayName), _CustomSpecularMask1);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBlend, _CustomSpecularBlend.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularUseOverride1, _CustomSpecularUseOverride0.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularDir1, _CustomSpecularDir1.displayName);
-                m_MaterialEditor.ShaderProperty(_CustomSpecularColor1, _CustomSpecularColor1.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBlur1, _CustomSpecularBlur1.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBorder1, _CustomSpecularBorder1.displayName);
 
