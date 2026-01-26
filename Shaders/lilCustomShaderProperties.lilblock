@@ -22,4 +22,8 @@
         _CustomSpecularBorder0 ("Border", Range(0, 1)) = 0.5
         _CustomSpecularBorder1 ("Border", Range(0, 1)) = 0.5
         [Enum(Add, 0, Multiply, 1, Replace, 2)] _CustomSpecularBlend ("Blend", Int) = 0
+        _CustomSpecularTangentWidth0 ("Tangent Width", Range(0, 10)) = 1
+        _CustomSpecularTangentWidth1 ("Tangent Width", Range(0, 10)) = 1
+        _CustomSpecularBitangentWidth0 ("Bitangent Width", Range(0, 10)) = 1
+        _CustomSpecularBitangentWidth1 ("Bitangent Width", Range(0, 10)) = 1
 

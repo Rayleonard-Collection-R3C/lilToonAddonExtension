@@ -23,6 +23,10 @@
     float _CustomSpecularEnableLighting; \
     float _CustomSpecularUseOverride0; \
     float _CustomSpecularUseOverride1; \
+    float _CustomSpecularTangentWidth0; \
+    float _CustomSpecularTangentWidth1; \
+    float _CustomSpecularBitangentWidth0; \
+    float _CustomSpecularBitangentWidth1; \
 
 
 // Custom textures

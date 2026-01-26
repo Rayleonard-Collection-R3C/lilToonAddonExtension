@@ -57,6 +57,10 @@ namespace lilToon
         MaterialProperty _CustomSpecularUseOverride1;
         MaterialProperty _CustomSpecularMask0;
         MaterialProperty _CustomSpecularMask1;
+        MaterialProperty _CustomSpecularTangentWidth0;
+        MaterialProperty _CustomSpecularTangentWidth1;
+        MaterialProperty _CustomSpecularBitangentWidth0;
+        MaterialProperty _CustomSpecularBitangentWidth1;
 
         protected override void DrawCustomProperties(Material material)
         {
@@ -91,6 +95,9 @@ namespace lilToon
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBlur0, _CustomSpecularBlur0.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBorder0, _CustomSpecularBorder0.displayName);
 
+                m_MaterialEditor.ShaderProperty(_CustomSpecularTangentWidth0, _CustomSpecularTangentWidth0.displayName);
+                m_MaterialEditor.ShaderProperty(_CustomSpecularBitangentWidth0, _CustomSpecularBitangentWidth0.displayName);
+
                 EditorGUILayout.Space();
 
                 EditorGUILayout.LabelField("Specular 2");
@@ -102,6 +109,9 @@ namespace lilToon
                 m_MaterialEditor.ShaderProperty(_CustomSpecularDir1, _CustomSpecularDir1.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBlur1, _CustomSpecularBlur1.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBorder1, _CustomSpecularBorder1.displayName);
+
+                m_MaterialEditor.ShaderProperty(_CustomSpecularTangentWidth1, _CustomSpecularTangentWidth0.displayName);
+                m_MaterialEditor.ShaderProperty(_CustomSpecularBitangentWidth1, _CustomSpecularBitangentWidth0.displayName);
 
                 EditorGUILayout.EndVertical();
                 EditorGUILayout.EndVertical();
