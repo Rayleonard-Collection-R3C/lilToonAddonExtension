@@ -61,6 +61,7 @@ namespace lilToon
         MaterialProperty _CustomSpecularTangentWidth1;
         MaterialProperty _CustomSpecularBitangentWidth0;
         MaterialProperty _CustomSpecularBitangentWidth1;
+        MaterialProperty _CustomSpecularViewIntensity;
 
         protected override void DrawCustomProperties(Material material)
         {
@@ -88,6 +89,7 @@ namespace lilToon
 
                 EditorGUILayout.Space();
                 EditorGUILayout.LabelField("Specular 1");
+                lilEditorGUI.DrawColorAsAlpha(_CustomSpecularColor0, "Alpha");
                 m_MaterialEditor.ShaderProperty(_CustomSpecularColor0, _CustomSpecularColor0.displayName);
                 m_MaterialEditor.TexturePropertySingleLine(new GUIContent(_CustomSpecularMask0.displayName), _CustomSpecularMask0);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularUseOverride0, _CustomSpecularUseOverride0.displayName);
@@ -101,7 +103,7 @@ namespace lilToon
                 EditorGUILayout.Space();
 
                 EditorGUILayout.LabelField("Specular 2");
-                                lilEditorGUI.DrawColorAsAlpha(_CustomSpecularColor1, "Alpha");
+                lilEditorGUI.DrawColorAsAlpha(_CustomSpecularColor1, "Alpha");
                 m_MaterialEditor.ShaderProperty(_CustomSpecularColor1, _CustomSpecularColor1.displayName);
                 m_MaterialEditor.TexturePropertySingleLine(new GUIContent(_CustomSpecularMask1.displayName), _CustomSpecularMask1);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBlend, _CustomSpecularBlend.displayName);
@@ -112,6 +114,9 @@ namespace lilToon
 
                 m_MaterialEditor.ShaderProperty(_CustomSpecularTangentWidth1, _CustomSpecularTangentWidth0.displayName);
                 m_MaterialEditor.ShaderProperty(_CustomSpecularBitangentWidth1, _CustomSpecularBitangentWidth0.displayName);
+
+                EditorGUILayout.Space();
+                m_MaterialEditor.ShaderProperty(_CustomSpecularViewIntensity, _CustomSpecularViewIntensity.displayName);
 
                 EditorGUILayout.EndVertical();
                 EditorGUILayout.EndVertical();

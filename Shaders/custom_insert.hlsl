@@ -35,7 +35,7 @@ float3 GetCustomSpecular(lilFragData fd, float3 L, float Blur, float Border, flo
     L = normalize(L);
 
     float3 N = fd.N;
-    float3 H = normalize(fd.V + L);
+    float3 H = normalize(fd.V * _CustomSpecularViewIntensity + L);
 
     H = StretchHalfVector(H, normalize(fd.TBN[0]), normalize(fd.TBN[1]), fd.N, tangentScale, bitangentScale);
 

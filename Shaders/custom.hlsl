@@ -27,6 +27,7 @@
     float _CustomSpecularTangentWidth1; \
     float _CustomSpecularBitangentWidth0; \
     float _CustomSpecularBitangentWidth1; \
+    float _CustomSpecularViewIntensity; \
 
 
 // Custom textures

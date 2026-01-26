@@ -26,4 +26,5 @@
         _CustomSpecularTangentWidth1 ("Tangent Width", Range(0, 10)) = 1
         _CustomSpecularBitangentWidth0 ("Bitangent Width", Range(0, 10)) = 1
         _CustomSpecularBitangentWidth1 ("Bitangent Width", Range(0, 10)) = 1
+        _CustomSpecularViewIntensity ("View Intensity", Range(0, 1)) = 1
 
