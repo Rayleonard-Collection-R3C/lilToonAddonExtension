@@ -91,3 +91,40 @@ void ApplyCustomSpecular(inout lilFragData fd)
 
     fd.col.rgb += spec;
 }
+
+
+void lilGetMatCap3rd(inout lilFragData fd LIL_SAMP_IN_FUNC(samp))
+{
+    if (_UseMatCap3rd)
+    {
+        // Normal
+        float3 N = fd.N;
+        N = lerp(fd.origN, fd.N, _MatCap3rdNormalStrength);
+
+        // UV
+        float2 mat3rdUV = lilCalcMatCapUV(fd.uv1, N, fd.V, fd.headV, _MatCap3rdTex_ST, _MatCap3rdBlendUV1.xy, _MatCap3rdZRotCancel, _MatCap3rdPerspective, _MatCap3rdVRParallaxStrength);
+
+        // Color
+        float4 matCap3rdColor = _MatCap3rdColor;
+            matCap3rdColor *= LIL_SAMPLE_2D_LOD(_MatCap3rdTex, lil_sampler_linear_repeat, mat3rdUV, _MatCap3rdLod);
+
+        #if !defined(LIL_PASS_FORWARDADD)
+            matCap3rdColor.rgb = lerp(matCap3rdColor.rgb, matCap3rdColor.rgb * fd.lightColor, _MatCap3rdEnableLighting);
+            matCap3rdColor.a = lerp(matCap3rdColor.a, matCap3rdColor.a * fd.shadowmix, _MatCap3rdShadowMask);
+        #else
+            if(_MatCap3rdBlendMode < 3) matCap3rdColor.rgb *= fd.lightColor * _MatCap3rdEnableLighting;
+            matCap3rdColor.a = lerp(matCap3rdColor.a, matCap3rdColor.a * fd.shadowmix, _MatCap3rdShadowMask);
+        #endif
+        #if LIL_RENDER == 2 && !defined(LIL_REFRACTION)
+            if(_MatCap3rdApplyTransparency) matCap3rdColor.a *= fd.col.a;
+        #endif
+        matCap3rdColor.a = fd.facing < (_MatCap3rdBackfaceMask-1.0) ? 0.0 : matCap3rdColor.a;
+
+        float3 matCapMask = 1.0;
+        matCapMask = LIL_SAMPLE_2D_ST(_MatCap3rdBlendMask, samp, fd.uvMain).rgb;
+
+        // Blend
+        matCap3rdColor.rgb = lerp(matCap3rdColor.rgb, matCap3rdColor.rgb * fd.albedo, _MatCap3rdMainStrength);
+        fd.col.rgb = lilBlendColor(fd.col.rgb, matCap3rdColor.rgb, _MatCap3rdBlend * matCap3rdColor.a * matCapMask, _MatCap3rdBlendMode);
+    }
+}

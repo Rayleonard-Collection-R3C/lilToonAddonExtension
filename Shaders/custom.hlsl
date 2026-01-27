@@ -28,12 +28,31 @@
     float _CustomSpecularBitangentWidth0; \
     float _CustomSpecularBitangentWidth1; \
     float _CustomSpecularViewIntensity; \
+    int _UseMatCap3rd; \
+    float4 _MatCap3rdColor; \
+    float _MatCap3rdMainStrength; \
+    float4 _MatCap3rdBlendUV1; \
+    int _MatCap3rdZRotCancel; \
+    int _MatCap3rdPerspective; \
+    float4 _MatCap3rdTex_ST; \
+    float4 _MatCap3rdBlendMask_ST; \
+    float _MatCap3rdVRParallaxStrength; \
+    float _MatCap3rdBlend; \
+    float _MatCap3rdEnableLighting; \
+    float _MatCap3rdShadowMask; \
+    int _MatCap3rdBackfaceMask; \
+    float _MatCap3rdLod; \
+    int _MatCap3rdBlendMode; \
+    int _MatCap3rdApplyTransparency; \
+    float _MatCap3rdNormalStrength; \
 
 
 // Custom textures
 #define LIL_CUSTOM_TEXTURES \
     TEXTURE2D(_CustomSpecularMask0); \
     TEXTURE2D(_CustomSpecularMask1); \
+    TEXTURE2D(_MatCap3rdTex); \
+    TEXTURE2D(_MatCap3rdBlendMask); \
 
 
 // Add vertex shader input
@@ -75,6 +94,7 @@
 
 #define BEFORE_OUTPUT ApplyCustomFresnel(fd); \
                       ApplyCustomSpecular(fd); \
+                      lilGetMatCap2nd(fd LIL_SAMP_IN(sampler_MainTex)); \
 
 
 //----------------------------------------------------------------------------------------------------------------------

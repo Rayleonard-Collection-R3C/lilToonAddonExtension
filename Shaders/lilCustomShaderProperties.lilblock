@@ -28,3 +28,21 @@
         _CustomSpecularBitangentWidth1 ("Bitangent Width", Range(0, 10)) = 1
         _CustomSpecularViewIntensity ("View Intensity", Range(0, 1)) = 1
 
+
+        [lilToggleLeft] _UseMatCap3rd               ("sMatCap3rd", Int) = 0
+        [lilHDR]        _MatCap3rdColor             ("sColor", Color) = (1,1,1,1)
+                        _MatCap3rdTex               ("Texture", 2D) = "white" {}
+                        _MatCap3rdMainStrength      ("sMainColorPower", Range(0, 1)) = 0
+        [lilVec2R]      _MatCap3rdBlendUV1          ("sBlendUV1", Vector) = (0,0,0,0)
+        [lilToggle]     _MatCap3rdZRotCancel        ("sMatCapZRotCancel", Int) = 1
+        [lilToggle]     _MatCap3rdPerspective       ("sFixPerspective", Int) = 1
+                        _MatCap3rdVRParallaxStrength ("sVRParallaxStrength", Range(0, 1)) = 1
+                        _MatCap3rdBlend             ("Blend", Range(0, 1)) = 1
+        [NoScaleOffset] _MatCap3rdBlendMask         ("Mask", 2D) = "white" {}
+                        _MatCap3rdEnableLighting    ("sEnableLighting", Range(0, 1)) = 1
+                        _MatCap3rdShadowMask        ("sShadowMask", Range(0, 1)) = 0
+        [lilToggle]     _MatCap3rdBackfaceMask      ("sBackfaceMask", Int) = 0
+                        _MatCap3rdLod               ("sBlur", Range(0, 10)) = 0
+        [Enum(Normal, 0, Add, 1, Screen, 2, Replace, 3)]       _MatCap3rdBlendMode         ("sBlendModes", Int) = 1
+        [lilToggle]     _MatCap3rdApplyTransparency ("sApplyTransparency", Int) = 1
+                        _MatCap3rdNormalStrength    ("sNormalStrength", Range(0, 1)) = 1.0
