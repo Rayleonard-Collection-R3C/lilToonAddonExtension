@@ -94,7 +94,7 @@
 
 #define BEFORE_OUTPUT ApplyCustomFresnel(fd); \
                       ApplyCustomSpecular(fd); \
-                      lilGetMatCap2nd(fd LIL_SAMP_IN(sampler_MainTex)); \
+                      lilGetMatCap3rd(fd LIL_SAMP_IN(sampler_MainTex)); \
 
 
 //----------------------------------------------------------------------------------------------------------------------
