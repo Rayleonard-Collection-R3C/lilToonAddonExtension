@@ -81,6 +81,24 @@ namespace lilToon
         MaterialProperty _MatCap3rdApplyTransparency;
         MaterialProperty _MatCap3rdNormalStrength;
 
+        MaterialProperty _UseMatCap4th;
+        MaterialProperty _MatCap4thTex;
+        MaterialProperty _MatCap4thColor;
+        MaterialProperty _MatCap4thMainStrength;
+        MaterialProperty _MatCap4thBlendUV1;
+        MaterialProperty _MatCap4thZRotCancel;
+        MaterialProperty _MatCap4thPerspective;
+        MaterialProperty _MatCap4thVRParallaxStrength;
+        MaterialProperty _MatCap4thBlend;
+        MaterialProperty _MatCap4thBlendMask;
+        MaterialProperty _MatCap4thEnableLighting;
+        MaterialProperty _MatCap4thShadowMask;
+        MaterialProperty _MatCap4thBackfaceMask;
+        MaterialProperty _MatCap4thLod;
+        MaterialProperty _MatCap4thBlendMode;
+        MaterialProperty _MatCap4thApplyTransparency;
+        MaterialProperty _MatCap4thNormalStrength;
+
         protected override void DrawCustomProperties(Material material)
         {
             isShowCustomProperties = Foldout("Addon Extension", " Addon Extension", isShowCustomProperties);
@@ -167,6 +185,33 @@ namespace lilToon
                     m_MaterialEditor.ShaderProperty(_MatCap3rdBlendMode, _MatCap3rdBlendMode.displayName);
                     m_MaterialEditor.ShaderProperty(_MatCap3rdApplyTransparency, _MatCap3rdApplyTransparency.displayName);
                     m_MaterialEditor.ShaderProperty(_MatCap3rdNormalStrength, _MatCap3rdNormalStrength.displayName);
+                    EditorGUILayout.EndVertical();
+                }
+                EditorGUILayout.EndVertical();
+
+                EditorGUILayout.BeginVertical(boxOuter);
+                m_MaterialEditor.ShaderProperty(_UseMatCap4th, _UseMatCap4th.displayName);
+                if (_UseMatCap4th.floatValue > 0)
+                {
+                    EditorGUILayout.BeginVertical(boxInnerHalf);
+                    m_MaterialEditor.TexturePropertySingleLine(new GUIContent(_MatCap4thTex.displayName), _MatCap4thTex);
+
+                    m_MaterialEditor.ShaderProperty(_MatCap4thColor, _MatCap4thColor.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thMainStrength, _MatCap4thMainStrength.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thBlendUV1, _MatCap4thBlendUV1.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thZRotCancel, _MatCap4thZRotCancel.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thPerspective, _MatCap4thPerspective.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thVRParallaxStrength, _MatCap4thVRParallaxStrength.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thBlend, _MatCap4thBlend.displayName);
+                    m_MaterialEditor.TexturePropertySingleLine(new GUIContent(_MatCap4thBlendMask.displayName), _MatCap4thBlendMask);
+
+                    m_MaterialEditor.ShaderProperty(_MatCap4thEnableLighting, _MatCap4thEnableLighting.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thShadowMask, _MatCap4thShadowMask.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thBackfaceMask, _MatCap4thBackfaceMask.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thLod, _MatCap4thLod.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thBlendMode, _MatCap4thBlendMode.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thApplyTransparency, _MatCap4thApplyTransparency.displayName);
+                    m_MaterialEditor.ShaderProperty(_MatCap4thNormalStrength, _MatCap4thNormalStrength.displayName);
                     EditorGUILayout.EndVertical();
                 }
                 EditorGUILayout.EndVertical();

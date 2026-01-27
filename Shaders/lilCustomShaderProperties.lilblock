@@ -46,3 +46,22 @@
         [Enum(Normal, 0, Add, 1, Screen, 2, Replace, 3)]       _MatCap3rdBlendMode         ("Blend Mode", Int) = 1
         [lilToggle]     _MatCap3rdApplyTransparency ("Apply Transparency", Int) = 1
                         _MatCap3rdNormalStrength    ("Normal Strength", Range(0, 1)) = 1.0
+
+
+                        [lilToggleLeft] _UseMatCap4th               ("MatCap 4th", Int) = 0
+        [lilHDR]        _MatCap4thColor             ("Color", Color) = (1,1,1,1)
+                        _MatCap4thTex               ("Texture", 2D) = "white" {}
+                        _MatCap4thMainStrength      ("Main Color Power", Range(0, 1)) = 0
+        [lilVec2R]      _MatCap4thBlendUV1          ("BlendUV1", Vector) = (0,0,0,0)
+        [lilToggle]     _MatCap4thZRotCancel        ("Z-Axis Rotation cancellation", Int) = 1
+        [lilToggle]     _MatCap4thPerspective       ("Fix Perspective", Int) = 1
+                        _MatCap4thVRParallaxStrength ("VR Parallax Strength", Range(0, 1)) = 1
+                        _MatCap4thBlend             ("Blend", Range(0, 1)) = 1
+        [NoScaleOffset] _MatCap4thBlendMask         ("Mask", 2D) = "white" {}
+                        _MatCap4thEnableLighting    ("Enable Lighting", Range(0, 1)) = 1
+                        _MatCap4thShadowMask        ("Shadow Mask", Range(0, 1)) = 0
+        [lilToggle]     _MatCap4thBackfaceMask      ("Backfac eMask", Int) = 0
+                        _MatCap4thLod               ("Blur", Range(0, 10)) = 0
+        [Enum(Normal, 0, Add, 1, Screen, 2, Replace, 3)]       _MatCap4thBlendMode         ("Blend Mode", Int) = 1
+        [lilToggle]     _MatCap4thApplyTransparency ("Apply Transparency", Int) = 1
+                        _MatCap4thNormalStrength    ("Normal Strength", Range(0, 1)) = 1.0

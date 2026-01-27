@@ -128,3 +128,39 @@ void lilGetMatCap3rd(inout lilFragData fd LIL_SAMP_IN_FUNC(samp))
         fd.col.rgb = lilBlendColor(fd.col.rgb, matCap3rdColor.rgb, _MatCap3rdBlend * matCap3rdColor.a * matCapMask, _MatCap3rdBlendMode);
     }
 }
+
+void lilGetMatCap4th(inout lilFragData fd LIL_SAMP_IN_FUNC(samp))
+{
+    if (_UseMatCap4th)
+    {
+        // Normal
+        float3 N = fd.N;
+        N = lerp(fd.origN, fd.N, _MatCap4thNormalStrength);
+
+        // UV
+        float2 mat4thUV = lilCalcMatCapUV(fd.uv1, N, fd.V, fd.headV, _MatCap4thTex_ST, _MatCap4thBlendUV1.xy, _MatCap4thZRotCancel, _MatCap4thPerspective, _MatCap4thVRParallaxStrength);
+
+        // Color
+        float4 matCap4thColor = _MatCap4thColor;
+            matCap4thColor *= LIL_SAMPLE_2D_LOD(_MatCap4thTex, lil_sampler_linear_repeat, mat4thUV, _MatCap4thLod);
+
+        #if !defined(LIL_PASS_FORWARDADD)
+            matCap4thColor.rgb = lerp(matCap4thColor.rgb, matCap4thColor.rgb * fd.lightColor, _MatCap4thEnableLighting);
+            matCap4thColor.a = lerp(matCap4thColor.a, matCap4thColor.a * fd.shadowmix, _MatCap4thShadowMask);
+        #else
+            if(_MatCap4thBlendMode < 3) matCap4thColor.rgb *= fd.lightColor * _MatCap4thEnableLighting;
+            matCap4thColor.a = lerp(matCap4thColor.a, matCap4thColor.a * fd.shadowmix, _MatCap4thShadowMask);
+        #endif
+        #if LIL_RENDER == 2 && !defined(LIL_REFRACTION)
+            if(_MatCap4thApplyTransparency) matCap4thColor.a *= fd.col.a;
+        #endif
+        matCap4thColor.a = fd.facing < (_MatCap4thBackfaceMask-1.0) ? 0.0 : matCap4thColor.a;
+
+        float3 matCapMask = 1.0;
+        matCapMask = LIL_SAMPLE_2D_ST(_MatCap4thBlendMask, samp, fd.uvMain).rgb;
+
+        // Blend
+        matCap4thColor.rgb = lerp(matCap4thColor.rgb, matCap4thColor.rgb * fd.albedo, _MatCap4thMainStrength);
+        fd.col.rgb = lilBlendColor(fd.col.rgb, matCap4thColor.rgb, _MatCap4thBlend * matCap4thColor.a * matCapMask, _MatCap4thBlendMode);
+    }
+}

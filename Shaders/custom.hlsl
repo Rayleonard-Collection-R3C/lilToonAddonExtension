@@ -45,6 +45,24 @@
     int _MatCap3rdBlendMode; \
     int _MatCap3rdApplyTransparency; \
     float _MatCap3rdNormalStrength; \
+    int _UseMatCap4th; \
+    float4 _MatCap4thColor; \
+    float _MatCap4thMainStrength; \
+    float4 _MatCap4thBlendUV1; \
+    int _MatCap4thZRotCancel; \
+    int _MatCap4thPerspective; \
+    float4 _MatCap4thTex_ST; \
+    float4 _MatCap4thBlendMask_ST; \
+    float _MatCap4thVRParallaxStrength; \
+    float _MatCap4thBlend; \
+    float _MatCap4thEnableLighting; \
+    float _MatCap4thShadowMask; \
+    int _MatCap4thBackfaceMask; \
+    float _MatCap4thLod; \
+    int _MatCap4thBlendMode; \
+    int _MatCap4thApplyTransparency; \
+    float _MatCap4thNormalStrength; \
+    
 
 
 // Custom textures
@@ -53,7 +71,8 @@
     TEXTURE2D(_CustomSpecularMask1); \
     TEXTURE2D(_MatCap3rdTex); \
     TEXTURE2D(_MatCap3rdBlendMask); \
-
+    TEXTURE2D(_MatCap4thTex); \
+    TEXTURE2D(_MatCap4thBlendMask); \
 
 // Add vertex shader input
 //#define LIL_REQUIRE_APP_POSITION
@@ -95,6 +114,7 @@
 #define BEFORE_OUTPUT ApplyCustomFresnel(fd); \
                       ApplyCustomSpecular(fd); \
                       lilGetMatCap3rd(fd LIL_SAMP_IN(sampler_MainTex)); \
+                      lilGetMatCap4th(fd LIL_SAMP_IN(sampler_MainTex)); \
 
 
 //----------------------------------------------------------------------------------------------------------------------
