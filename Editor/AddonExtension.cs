@@ -10,7 +10,7 @@ namespace lilToon
     public class AddonExtensionInspector : lilToonInspector
     {
         private static bool isShowCustomProperties;
-        private const string shaderName = "AddonExtension";
+        private const string shaderName = "lilToon Addon Extension";
 
         protected override void LoadCustomProperties(MaterialProperty[] props, Material material)
         {
