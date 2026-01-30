@@ -7,7 +7,9 @@
         _AlphaFresnelLigting ("Enable Lighting", Range(0, 1)) = 1
 
 
-        [lilToggleLeft] _CustomSpecularEnabled ("Specular Enabled", Float) = 0
+        [lilToggleLeft] _CustomSpecularEnabled ("Specular Enabled", Int) = 0
+        [lilToggleLeft] _CustomSpecularAniso0Enabled ("Anisotropy", Int) = 0
+        [lilToggleLeft] _CustomSpecularAniso1Enabled ("Anisotropy", Int) = 0
         [lilToggleLeft] _CustomSpecularUseOverride0 ("Use Override Direction", Float) = 0
         [lilToggleLeft] _CustomSpecularUseOverride1 ("Use Override Direction", Float) = 0
         _CustomSpecularMask0 ("Mask", 2D) = "white" {}

@@ -62,6 +62,8 @@
     int _MatCap4thBlendMode; \
     int _MatCap4thApplyTransparency; \
     float _MatCap4thNormalStrength; \
+    int _CustomSpecularAniso0Enabled; \
+    int _CustomSpecularAniso1Enabled; \
     
 
 

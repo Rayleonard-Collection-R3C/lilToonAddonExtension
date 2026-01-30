@@ -30,14 +30,17 @@ float3 StretchHalfVector(float3 H, float3 T, float3 B, float3 N, float tangentSc
     return normalize(hT * T + hB * B + hN * N);
 }
 
-float3 GetCustomSpecular(lilFragData fd, float3 L, float Blur, float Border, float tangentScale, float bitangentScale)
+float3 GetCustomSpecular(lilFragData fd, float3 L, float Blur, float Border, float tangentScale, float bitangentScale, int aniso)
 {
     L = normalize(L);
 
     float3 N = fd.N;
     float3 H = normalize(fd.V * _CustomSpecularViewIntensity + L);
 
-    H = StretchHalfVector(H, normalize(fd.TBN[0]), normalize(fd.TBN[1]), fd.N, tangentScale, bitangentScale);
+    if (aniso > 0)
+    {
+        H = StretchHalfVector(H, normalize(fd.TBN[0]), normalize(fd.TBN[1]), fd.N, tangentScale, bitangentScale);
+    }
 
     float spec = saturate(dot(H, N));
     // float NoL = saturate(dot(N, L));
@@ -62,8 +65,8 @@ void ApplyCustomSpecular(inout lilFragData fd)
         dir1 = _CustomSpecularDir1;
     }
     
-    float spec0Alpha = GetCustomSpecular(fd, dir0, _CustomSpecularBlur0, _CustomSpecularBorder0, _CustomSpecularTangentWidth0, _CustomSpecularBitangentWidth0) * _CustomSpecularColor0.a;
-    float spec1Alpha = GetCustomSpecular(fd, dir1, _CustomSpecularBlur1, _CustomSpecularBorder1, _CustomSpecularTangentWidth1 , _CustomSpecularBitangentWidth1) * _CustomSpecularColor1.a;
+    float spec0Alpha = GetCustomSpecular(fd, dir0, _CustomSpecularBlur0, _CustomSpecularBorder0, _CustomSpecularTangentWidth0, _CustomSpecularBitangentWidth0, _CustomSpecularAniso0Enabled) * _CustomSpecularColor0.a;
+    float spec1Alpha = GetCustomSpecular(fd, dir1, _CustomSpecularBlur1, _CustomSpecularBorder1, _CustomSpecularTangentWidth1 , _CustomSpecularBitangentWidth1, _CustomSpecularAniso1Enabled) * _CustomSpecularColor1.a;
     float3 spec = 0;
 
 

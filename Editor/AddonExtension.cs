@@ -62,6 +62,8 @@ namespace lilToon
         MaterialProperty _CustomSpecularBitangentWidth0;
         MaterialProperty _CustomSpecularBitangentWidth1;
         MaterialProperty _CustomSpecularViewIntensity;
+        MaterialProperty _CustomSpecularAniso0Enabled;
+        MaterialProperty _CustomSpecularAniso1Enabled;
 
         MaterialProperty _UseMatCap3rd;
         MaterialProperty _MatCap3rdTex;
@@ -137,8 +139,12 @@ namespace lilToon
                     m_MaterialEditor.ShaderProperty(_CustomSpecularBlur0, _CustomSpecularBlur0.displayName);
                     m_MaterialEditor.ShaderProperty(_CustomSpecularBorder0, _CustomSpecularBorder0.displayName);
 
-                    m_MaterialEditor.ShaderProperty(_CustomSpecularTangentWidth0, _CustomSpecularTangentWidth0.displayName);
-                    m_MaterialEditor.ShaderProperty(_CustomSpecularBitangentWidth0, _CustomSpecularBitangentWidth0.displayName);
+                    m_MaterialEditor.ShaderProperty(_CustomSpecularAniso0Enabled, _CustomSpecularAniso0Enabled.displayName);
+                    if (_CustomSpecularAniso0Enabled.floatValue > 0)
+                    {
+                        m_MaterialEditor.ShaderProperty(_CustomSpecularTangentWidth0, _CustomSpecularTangentWidth0.displayName);
+                        m_MaterialEditor.ShaderProperty(_CustomSpecularBitangentWidth0, _CustomSpecularBitangentWidth0.displayName);
+                    }
 
                     EditorGUILayout.Space();
 
@@ -152,8 +158,12 @@ namespace lilToon
                     m_MaterialEditor.ShaderProperty(_CustomSpecularBlur1, _CustomSpecularBlur1.displayName);
                     m_MaterialEditor.ShaderProperty(_CustomSpecularBorder1, _CustomSpecularBorder1.displayName);
 
-                    m_MaterialEditor.ShaderProperty(_CustomSpecularTangentWidth1, _CustomSpecularTangentWidth0.displayName);
-                    m_MaterialEditor.ShaderProperty(_CustomSpecularBitangentWidth1, _CustomSpecularBitangentWidth0.displayName);
+                    m_MaterialEditor.ShaderProperty(_CustomSpecularAniso1Enabled, _CustomSpecularAniso1Enabled.displayName);
+                    if (_CustomSpecularAniso1Enabled.floatValue > 0)
+                    {
+                        m_MaterialEditor.ShaderProperty(_CustomSpecularTangentWidth1, _CustomSpecularTangentWidth0.displayName);
+                        m_MaterialEditor.ShaderProperty(_CustomSpecularBitangentWidth1, _CustomSpecularBitangentWidth0.displayName);
+                    }
 
                     EditorGUILayout.Space();
                     m_MaterialEditor.ShaderProperty(_CustomSpecularViewIntensity, _CustomSpecularViewIntensity.displayName);
