@@ -1,0 +1,16 @@
+{
+  "name": "io.github.rayleonard-collection-r3c.liltoonaddonextension",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "displayName": "lilToon Addon Extension",
+  "hideInEditor": false,
+  "gitDependencies": {},
+  "vpmDependencies": {},
+  "legacyFolders": {},
+  "legacyFiles": {},
+  "author": {
+    "name": "Rayleonard-Collection-R3C",
+    "url": "https://github.com/Rayleonard-Collection-R3C"
+  },
+  "description": "lilToon shader addon"
+}
