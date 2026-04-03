@@ -5,7 +5,7 @@ void ApplyCustomFresnel(inout lilFragData fd)
         return;
     }
 
-    float fresnel = pow(1.0 - fd.nv, _AlphaFresnelPower);
+    float fresnel = pow(1.0 - fd.nvabs, _AlphaFresnelPower);
     // fresnel = smoothstep(_AlphaFresnelMin, _AlphaFresnelMax, fresnel);
 
     fresnel = lilTooningScale(1, fresnel, _AlphaFresnelBorder, _AlphaFresnelBlur);
