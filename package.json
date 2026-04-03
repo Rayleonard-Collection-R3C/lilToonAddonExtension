@@ -1,6 +1,6 @@
 {
   "name": "io.github.rayleonard-collection-r3c.liltoonaddonextension",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "unity": "2022.3",
   "displayName": "lilToon Addon Extension",
   "hideInEditor": false,
