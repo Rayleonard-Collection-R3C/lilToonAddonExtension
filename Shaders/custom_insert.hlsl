@@ -1,9 +1,17 @@
+#if defined(LIL_OUTLINE) || defined(LIL_PASS_SHADOWCASTER) || defined(LIL_PASS_FORWARDADD) || defined(LIL_PASS_META)
+    #define SKIP_CUSTOM_OUTPOUT
+#endif
+
 void ApplyCustomFresnel(inout lilFragData fd)
 {
     if (!_AlphaFresnelEnabled)
     {
         return;
     }
+
+    #ifdef SKIP_CUSTOM_OUTPOUT
+    return;
+    #endif
 
     float fresnel = pow(1.0 - fd.nvabs, _AlphaFresnelPower);
     // fresnel = smoothstep(_AlphaFresnelMin, _AlphaFresnelMax, fresnel);
@@ -54,6 +62,10 @@ void ApplyCustomSpecular(inout lilFragData fd)
         return;
     }
 
+    #ifdef SKIP_CUSTOM_OUTPOUT
+    return;
+    #endif
+
     float3 dir0 = fd.L;
     float3 dir1 = fd.L;
     if (_CustomSpecularUseOverride0)
@@ -98,6 +110,10 @@ void ApplyCustomSpecular(inout lilFragData fd)
 
 void lilGetMatCap3rd(inout lilFragData fd LIL_SAMP_IN_FUNC(samp))
 {
+    #ifdef SKIP_CUSTOM_OUTPOUT
+    return;
+    #endif
+
     if (_UseMatCap3rd)
     {
         // Normal
@@ -134,6 +150,10 @@ void lilGetMatCap3rd(inout lilFragData fd LIL_SAMP_IN_FUNC(samp))
 
 void lilGetMatCap4th(inout lilFragData fd LIL_SAMP_IN_FUNC(samp))
 {
+    #ifdef SKIP_CUSTOM_OUTPOUT
+    return;
+    #endif
+
     if (_UseMatCap4th)
     {
         // Normal
