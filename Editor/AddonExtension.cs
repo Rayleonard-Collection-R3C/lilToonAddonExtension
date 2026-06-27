@@ -101,6 +101,10 @@ namespace lilToon
         MaterialProperty _MatCap4thApplyTransparency;
         MaterialProperty _MatCap4thNormalStrength;
 
+        MaterialProperty _AlphaFresnelMask;
+        MaterialProperty _AlphaFresnelMaskIntensity;
+        MaterialProperty _AlphaFresnelMaskInvert;
+
         protected override void DrawCustomProperties(Material material)
         {
             isShowCustomProperties = Foldout("Addon Extension", " Addon Extension", isShowCustomProperties);
@@ -112,6 +116,9 @@ namespace lilToon
                 if (_AlphaFresnelEnabled.floatValue > 0)
                 {
                     EditorGUILayout.BeginVertical(boxInnerHalf);
+                    m_MaterialEditor.TexturePropertySingleLine(new GUIContent(_AlphaFresnelMask.displayName), _AlphaFresnelMask);
+                    m_MaterialEditor.ShaderProperty(_AlphaFresnelMaskIntensity, _AlphaFresnelMaskIntensity.displayName);
+                    m_MaterialEditor.ShaderProperty(_AlphaFresnelMaskInvert, _AlphaFresnelMaskInvert.displayName);
                     m_MaterialEditor.ShaderProperty(_AlphaFresnelColor, _AlphaFresnelColor.displayName);
                     m_MaterialEditor.ShaderProperty(_AlphaFresnelPower, _AlphaFresnelPower.displayName);
                     m_MaterialEditor.ShaderProperty(_AlphaFresnelBorder, _AlphaFresnelBorder.displayName);

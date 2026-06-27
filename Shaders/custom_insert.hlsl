@@ -18,12 +18,20 @@ void ApplyCustomFresnel(inout lilFragData fd)
 
     fresnel = lilTooningScale(1, fresnel, _AlphaFresnelBorder, _AlphaFresnelBlur);
 
+    float mask = LIL_SAMPLE_2D(_AlphaFresnelMask, sampler_MainTex, fd.uvMain).r;
+    if (_AlphaFresnelMaskInvert > 0.0)
+    {
+        mask = 1.0 - mask;
+    }
+    mask = lerp(1.0, mask, _AlphaFresnelMaskIntensity);
+
+
     float4 fresnelCol = _AlphaFresnelColor;
     fresnelCol.rgb *= lerp(1, fd.lightColor, _AlphaFresnelLigting);
     fresnelCol.a *= fresnel;
     
-    fd.col.rgb = lerp(fd.col.rgb, fresnelCol.rgb, fresnelCol.a);
-    fd.col.a = lerp(fd.col.a, 1, fresnelCol.a);
+    fd.col.rgb = lerp(fd.col.rgb, fresnelCol.rgb, fresnelCol.a * mask);
+    fd.col.a = lerp(fd.col.a, 1, fresnelCol.a * mask);
 }
 
 float3 StretchHalfVector(float3 H, float3 T, float3 B, float3 N, float tangentScale, float bitangentScale)

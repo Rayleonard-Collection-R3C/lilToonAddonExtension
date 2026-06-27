@@ -1,4 +1,7 @@
         [lilToggleLeft] _AlphaFresnelEnabled ("Alpha Fresnel Enabled", Float) = 0
+        _AlphaFresnelMask ("Mask", 2D) = "white" {}
+        _AlphaFresnelMaskIntensity ("Mask Intensity", Range(0, 1)) = 1
+        [lilToggleLeft] _AlphaFresnelMaskInvert ("Mask Invert", Int) = 0
         _AlphaFresnelPower ("Power", Float) = 1
         _AlphaFresnelIntensity ("Intensity", Range(0, 1)) = 0
         _AlphaFresnelBorder ("Border", Range(0, 1)) = 0.5

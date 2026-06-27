@@ -10,6 +10,8 @@
     float _AlphaFresnelPower; \
     float _AlphaFresnelLigting; \
     float _AlphaFresnelIntensity; \
+    float _AlphaFresnelMaskIntensity; \
+    float _AlphaFresnelMaskInvert; \
     float _CustomSpecularEnabled; \
     float3 _CustomSpecularDir0; \
     float3 _CustomSpecularDir1; \
@@ -70,6 +72,7 @@
 // Custom textures
 #define LIL_CUSTOM_TEXTURES \
     TEXTURE2D(_CustomSpecularMask0); \
+    TEXTURE2D(_AlphaFresnelMask); \
     TEXTURE2D(_CustomSpecularMask1); \
     TEXTURE2D(_MatCap3rdTex); \
     TEXTURE2D(_MatCap3rdBlendMask); \
